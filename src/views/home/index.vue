@@ -87,10 +87,10 @@
 </template>
 
 <script>
-import Table from "./model/table";
-import SearchForm from "./model/searchForm";
-import Creator from "./model/creator";
-import Updater from "./model/updater";
+import Table from "./module/table";
+import SearchForm from "./module/searchForm";
+import Creator from "./module/creator";
+import Updater from "./module/updater";
 
 export default {
   name: "home",
@@ -98,7 +98,7 @@ export default {
     const searchForm = new SearchForm();
     const table = new Table({ searchForm });
     const creator = new Creator({ table });
-    const updater = new Updater({ table }); console.log(updater)
+    const updater = new Updater({ table });
 
     return {
       // 表格搜索
@@ -134,6 +134,7 @@ export default {
   // 组件数据初始化
   mounted() {
     this.getTableData();
+     console.log(this)
   }
 };
 </script>

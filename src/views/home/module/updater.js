@@ -10,6 +10,11 @@ export default class Updater extends Reactive {
 
   updateForm = {};
 
+  constructor(deps) {
+    super();
+    this.$deps = deps;
+  }
+
   getItem() {
     return new Promise(resolve => {
       setTimeout(() => {

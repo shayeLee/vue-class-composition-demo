@@ -26,6 +26,11 @@ export default class Creator extends Reactive {
     ]
   }
 
+  constructor(deps) {
+    super();
+    this.$deps = deps;
+  }
+
   openCreateDialog() {
     this.dialog.visible = true;
   }
