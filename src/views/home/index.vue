@@ -37,7 +37,12 @@
         @current-change="handleCurrentChange"
       ></el-pagination>
     </div>
-    <el-dialog title="新增" :visible.sync="createDialog.visible" width="30%" :before-close="createBeforeClose">
+    <el-dialog
+      title="新增"
+      :visible.sync="createDialog.visible"
+      width="30%"
+      :before-close="createBeforeClose"
+    >
       <el-form ref="createForm" :model="createForm" :rules="rules" label-width="96px">
         <el-form-item label="员工姓名" prop="name">
           <el-input v-model="createForm.name" placeholder="请输入员工姓名"></el-input>
@@ -57,10 +62,19 @@
       </el-form>
       <span slot="footer">
         <el-button :disabled="createDialog.loading" @click="closeCreateDialog($refs.createForm)">取 消</el-button>
-        <el-button type="primary" :loading="createDialog.loading" @click="create($refs.createForm)">确 定</el-button>
+        <el-button
+          type="primary"
+          :loading="createDialog.loading"
+          @click="create($refs.createForm)"
+        >确 定</el-button>
       </span>
     </el-dialog>
-    <el-dialog title="编辑" :visible.sync="updaterDialog.visible" width="30%" :before-close="updateBeforeClose">
+    <el-dialog
+      title="编辑"
+      :visible.sync="updaterDialog.visible"
+      width="30%"
+      :before-close="updateBeforeClose"
+    >
       <el-form ref="updateForm" :model="updateForm" :rules="rules" label-width="96px">
         <el-form-item label="员工姓名" prop="name">
           <el-input v-model="updateForm.name" placeholder="请输入员工姓名"></el-input>
@@ -79,8 +93,15 @@
         </el-form-item>
       </el-form>
       <span slot="footer">
-        <el-button :disabled="updaterDialog.loading" @click="closeUpdateDialog($refs.updateForm)">取 消</el-button>
-        <el-button type="primary" :loading="updaterDialog.loading" @click="update($refs.updateForm)">确 定</el-button>
+        <el-button
+          :disabled="updaterDialog.loading"
+          @click="closeUpdateDialog($refs.updateForm)"
+        >取 消</el-button>
+        <el-button
+          type="primary"
+          :loading="updaterDialog.loading"
+          @click="update($refs.updateForm)"
+        >确 定</el-button>
       </span>
     </el-dialog>
   </div>
@@ -114,27 +135,27 @@ export default {
       handleCurrentChange: table.handleCurrentChange,
 
       // 新增
-      createDialog: creator.dialog,
+      createDialog: creator.createDialog,
       createForm: creator.createForm,
       rules: creator.rules,
       openCreateDialog: creator.openCreateDialog,
       closeCreateDialog: creator.closeCreateDialog,
-      createBeforeClose: creator.beforeClose,
+      createBeforeClose: creator.createBeforeClose,
       create: creator.create,
 
       // 编辑
-      updaterDialog: updater.dialog,
+      updaterDialog: updater.updaterDialog,
       updateForm: updater.updateForm,
       openUpdateDialog: updater.openUpdateDialog,
       closeUpdateDialog: updater.closeUpdateDialog,
-      updateBeforeClose: updater.beforeClose,
-      update: updater.update
+      updateBeforeClose: updater.updateBeforeClose,
+      update: updater.update,
     };
   },
   // 组件数据初始化
   mounted() {
     this.getTableData();
-     console.log(this)
-  }
+    console.log(this);
+  },
 };
 </script>
